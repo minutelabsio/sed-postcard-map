@@ -1,0 +1,23 @@
+$phi: 1.61803398875;
+
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/typography";
+
+@import "vendor/_vex";
+@import "vendor/_vex-theme-default";
+
+#wrap-map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.postcard-info {
+    img {
+        display: block;
+        margin: auto;
+    }
+}
