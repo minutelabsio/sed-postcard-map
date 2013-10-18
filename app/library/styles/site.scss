@@ -21,3 +21,56 @@ $phi: 1.61803398875;
         margin: auto;
     }
 }
+
+
+// curator
+#search {
+    width: 500px;
+    padding: 0.4em;
+    font-size: 14px;
+    border: 1px solid #222;
+}
+
+.simple-carousel {
+    background: #fff;
+    width: 100%;
+    height: 120px;
+    margin-bottom: 30px;
+    padding: 14px 2px 4px;
+    overflow: auto;
+    white-space: nowrap;
+
+    .item {
+        display: inline-block;
+        overflow: hidden;
+        max-height: 100%;
+        margin-right: 12px;
+        cursor: pointer;
+        border: 1px solid #ddd;
+
+        &:hover {
+            outline: 1px solid steelblue;
+        }
+
+        &.on {
+            outline: 1px solid red;
+            position: relative;
+            bottom: 12px;
+        }
+    }
+}
+
+#messages {
+    position: absolute;
+    bottom: 168px;
+    left: 50%;
+    z-index: 1000;
+    margin-left: -200px;
+    width: 400px;
+    background: white;
+    .msg {
+        padding: 12px;
+    
+    }
+}
+
