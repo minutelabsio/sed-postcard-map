@@ -88,8 +88,8 @@ define(
                     var m = new google.maps.Marker({
                         // title: entry.city,
                         position: new google.maps.LatLng(entry.lat, entry.lng),
-                        map: map//,
-                        // icon: ''
+                        map: map,
+                        icon: 'library/images/mail_24x18.png'
                     });
                     
                     markers.push(m);
@@ -104,29 +104,19 @@ define(
                             ],
                             callback: $.noop
                         });
-                        
-                        // info = info || new google.maps.InfoWindow({
-                            
-                        //     content: div[0],
-                        //     position: entry.position
-                            
-                        // });
-                        
-                        // info.open(map, m);
                     });
                 });
                 
                 var markerCluster = new MarkerClusterer(map, markers, {
                     zoomOnClick: true,
-                    gridSize: 20//,
-                    // styles: [{
-                    //     url: '',
-                    //     height:34,
-                    //     width:34,
-                    //     textSize: 15,
-                    //     textColor: '#222'
-                        
-                    // }]
+                    gridSize: 20,
+                    styles: [{
+                        url: 'library/images/mail_24x18.png',
+                        height: 18,
+                        width: 24,
+                        textSize: 13,
+                        textColor: '#eee'
+                    }]
                 });
             }
 
