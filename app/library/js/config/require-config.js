@@ -11,6 +11,11 @@ require.config({
         'marker-clusterer': {
             deps: ['google/maps'],
             exports: 'MarkerClusterer'
+        },
+
+        'backbone': {
+            deps: ['lodash', 'jquery'],
+            exports: 'Backbone'
         }
     },
 
@@ -34,6 +39,10 @@ require.config({
         // jQuery
         'jquery': 'vendor/jquery',
 
+        'backbone': 'vendor/backbone',
+
+        'lodash': 'vendor/lodash',
+
         // marker clusterer
         'marker-clusterer': 'vendor/marker-clusterer',
 
@@ -46,12 +55,16 @@ require.config({
         
         '*' : {
             'google/maps': 'modules/adapters/google-maps',
-            'jquery': 'modules/adapters/jquery', // jQuery noconflict adapter
+            // 'jquery': 'modules/adapters/jquery', // jQuery noconflict adapter
             'site-config': 'config/site-config.json'
         },
 
-        'modules/adapters/jquery': {
-            'jquery': 'jquery'
+        // 'modules/adapters/jquery': {
+        //     'jquery': 'jquery'
+        // },
+
+        'backbone': {
+            'underscore': 'lodash'
         }
     }
 });

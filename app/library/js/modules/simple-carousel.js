@@ -39,7 +39,7 @@ define(
                 var self = this;
 
                 self.on('create', function( id ){
-                    var img = self.get( id );
+                    var img = self.get( id ).img;
                     self.addImage( id, img );
                 });
 

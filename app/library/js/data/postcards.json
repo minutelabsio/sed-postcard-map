@@ -1,8 +1,8 @@
 [
-	{
-		"title": "Some City",
-		"img": "test.jpg",
-		"lat": 43.0936, 
-		"lng": -79.0593
-	}
+    {
+        "id": "test.jpg",
+        "title": "Some City",
+        "lat": 43.0936, 
+        "lng": -79.0593
+    }
 ]
