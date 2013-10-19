@@ -1,0 +1,6 @@
+{
+    "require": {
+        "silex/silex": "~1.1",
+        "heartsentwined/file-system-manager": "1.*"
+    }
+}

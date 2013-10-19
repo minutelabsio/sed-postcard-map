@@ -29,7 +29,7 @@ define(
             model: Backbone.Model.extend({
                 // urlRoot: '/data?id=',
             }),
-            url: '/library/js/data/postcards.json'
+            url: '/data'
         }));
 
         /**
@@ -185,6 +185,8 @@ define(
                     var model = collection.get( id );
                     if (model.get('lat')){
                         self.msg(id + ': '+JSON.stringify(model.toJSON()));
+                    } else {
+                        self.msg(id + ': (no data)');
                     }
 
                     self.set('selected', id);

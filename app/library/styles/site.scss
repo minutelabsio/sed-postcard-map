@@ -70,7 +70,9 @@ $phi: 1.61803398875;
     background: white;
     .msg {
         padding: 12px;
-    
+        width: 90%;
+        overflow: hidden;
+        word-break: break-word;
     }
 }
 
