@@ -24,12 +24,13 @@ define(
 
         vex.defaultOptions.className = 'vex-theme-default';
         dialog.defaultOptions.showCloseButton = true;
+        Backbone.emulateHTTP = true;
 
         var collection = new (Backbone.Collection.extend({
             model: Backbone.Model.extend({
                 // urlRoot: '/data?id=',
             }),
-            url: '/data'
+            url: 'data'
         }));
 
         /**
