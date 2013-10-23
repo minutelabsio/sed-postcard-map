@@ -15,7 +15,7 @@
 
   <!-- js includes -->
   <script src="library/js/vendor/modernizr.js"></script>
-  <script>var require = { urlArgs: 'v=@@pkg.version' };</script>
+  <script>var require = { urlArgs: 'v=' + ('@@pkg.version'.substr(0,1) === '@' ? (new Date()).getTime() : '@@pkg.version' ) };</script>
   <script src="library/js/vendor/require.js?v=@@pkg.version" data-main="library/js/page-curator"></script>
 </head>
 <body>
