@@ -7,7 +7,7 @@ define(
         'vex',
         'vex.dialog',
         'tpl!templates/postcard-info-window.tpl',
-        'json!data/postcards.json'
+        'json!data/postcard-data.json'
     ],
     function(
         $,
@@ -89,7 +89,14 @@ define(
                         // title: entry.city,
                         position: new google.maps.LatLng(entry.lat, entry.lng),
                         map: map,
-                        icon: 'library/images/mail_24x18.png'
+                        // icon: 'library/images/mail_24x18.png',
+                        icon: {
+                            url: 'library/images/postcards/' + entry.id,
+                            scaledSize: {
+                                width: 50, 
+                                height: 50
+                            }
+                        }
                     });
                     
                     markers.push(m);
@@ -111,11 +118,11 @@ define(
                     zoomOnClick: true,
                     gridSize: 20,
                     styles: [{
-                        url: 'library/images/mail_24x18.png',
-                        height: 18,
-                        width: 24,
-                        textSize: 13,
-                        textColor: '#eee'
+                        url: 'library/images/postcard.jpg',
+                        height: 32,
+                        width: 50,
+                        textSize: 20,
+                        textColor: '#833'
                     }]
                 });
             }
