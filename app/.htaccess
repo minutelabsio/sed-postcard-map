@@ -3,7 +3,7 @@
 
     RewriteEngine On
 
-    RewriteBase /dev/sed-postcard-map/app
+    #RewriteBase /dev/sed-postcard-map/app
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 

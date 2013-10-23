@@ -93,6 +93,8 @@ define(
                             return;
                         }
 
+                        self.selectPostcard( self.postcardChooser.$el.find('.on:first').next().attr('data-id') );
+
                         var model = collection.get( sel );
                         model.save({
                             lat: loc.lat(),
@@ -130,6 +132,33 @@ define(
                 });
             },
 
+            selectPostcard: function( id ){
+
+                var self = this;
+
+                if (!id) {
+                    return;
+                }
+
+                self.postcardChooser.$el.find('.item').removeClass('on');
+                var el = self.postcardChooser.$el.find('[data-id="'+id+'"]');
+                el.addClass('on');
+
+                var model = collection.get( id );
+                if (model.get('lat')){
+                    self.msg(id + ': '+JSON.stringify(model.toJSON()));
+                } else {
+                    self.msg(id + ': (no data)');
+                }
+
+                self.set('selected', id);
+                self.set('city', false);
+
+                setTimeout(function(){
+                    self.$search.val('').focus();
+                }, 100);
+            },
+
             /**
              * DomReady Callback
              * @return {void}
@@ -150,10 +179,10 @@ define(
                 var map = self.map = new google.maps.Map(self.el[0], myOptions);
 
                 // init search box
-                var $search = $('<input id="search">');
+                var $search = self.$search = $('<input id="search">');
                 
                 var autocomplete = new google.maps.places.Autocomplete( $search[0], {
-                        types: ['(cities)'],
+                        types: ['(regions)'],
                         bounds: new google.maps.LatLngBounds(
                             new google.maps.LatLng(-90, -180),
                             new google.maps.LatLng(90, 180)
@@ -179,21 +208,8 @@ define(
                 map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push( self.postcardChooser.render().$el[0] );
 
                 self.postcardChooser.on('click', function( id ){
-                    self.postcardChooser.$el.find('.item').removeClass('on');
-                    var el = self.postcardChooser.$el.find('[data-id="'+id+'"]');
-                    el.addClass('on');
-
-                    var model = collection.get( id );
-                    if (model.get('lat')){
-                        self.msg(id + ': '+JSON.stringify(model.toJSON()));
-                    } else {
-                        self.msg(id + ': (no data)');
-                    }
-
-                    self.set('selected', id);
-                    self.set('city', false);
-
-                    $search.val('').focus();
+                    
+                    self.selectPostcard( id );
                 });
             }
 
